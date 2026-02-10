@@ -8,7 +8,6 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Check if user is logged in
     const token = localStorage.getItem("token");
     const savedUser = localStorage.getItem("user");
 
@@ -18,23 +17,49 @@ export const AuthProvider = ({ children }) => {
     setLoading(false);
   }, []);
 
+  // =====================
+  // LOGIN
+  // =====================
   const login = async (email, password) => {
-    const response = await api.post("/auth/login", { email, password });
-    const { token, user } = response.data;
+    try {
+      const response = await api.post("/auth/login", {
+        email,
+        password,
+      });
 
-    localStorage.setItem("token", token);
-    localStorage.setItem("user", JSON.stringify(user));
-    setUser(user);
+      const { token, user } = response.data;
 
-    return user;
+      localStorage.setItem("token", token);
+      localStorage.setItem("user", JSON.stringify(user));
+      setUser(user);
+
+      return user;
+    } catch (error) {
+      throw error;
+    }
   };
 
+  // =====================
+  // REGISTER (NO AUTO LOGIN)
+  // =====================
   const register = async (name, email, password, phone) => {
-    await api.post("/auth/register", { name, email, password, phone });
-    // Auto login after registration
-    return login(email, password);
+    try {
+      const response = await api.post("/auth/register", {
+        name,
+        email,
+        password,
+        phone,
+      });
+
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
   };
 
+  // =====================
+  // LOGOUT
+  // =====================
   const logout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
@@ -47,7 +72,14 @@ export const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ user, loading, login, register, logout, isAdmin }}
+      value={{
+        user,
+        loading,
+        login,
+        register,
+        logout,
+        isAdmin,
+      }}
     >
       {children}
     </AuthContext.Provider>

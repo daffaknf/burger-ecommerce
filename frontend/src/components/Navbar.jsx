@@ -24,16 +24,19 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-dark-900 text-white shadow-lg sticky top-0 z-50">
+    <nav
+      className="bg-dark-900 text-black
+     shadow-lg sticky top-0 z-50"
+    >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2 group">
-            <div className="w-10 h-10 bg-primary-600 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-              <span className="text-2xl font-display">🍔</span>
+            <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+              <span className="text-l font-display">🍔</span>
             </div>
-            <span className="text-2xl font-display tracking-wider">
-              BURGER HOUSE
+            <span className="text-2xl font-display font-semibold tracking-wider">
+              burgerss!
             </span>
           </Link>
 
@@ -109,7 +112,10 @@ const Navbar = () => {
             >
               <ShoppingCart size={20} />
               {cartCount > 0 && (
-                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-6 h-6 flex items-center justify-center font-bold animate-pulse">
+                <span
+                  className="absolute -top-2 -right-2 bg-red-500 text-black
+                 text-xs rounded-full w-6 h-6 flex items-center justify-center font-bold animate-pulse"
+                >
                   {cartCount}
                 </span>
               )}

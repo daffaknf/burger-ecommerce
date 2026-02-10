@@ -3,6 +3,12 @@ import { Link } from "react-router-dom";
 import { ChevronRight, TrendingUp, Sparkles, Clock } from "lucide-react";
 import api from "../utils/api";
 import { useCart } from "../context/CartContext";
+import bombay from "../assets/bombay.png";
+import burger from "../assets/burger.png";
+import keju from "../assets/keju.png";
+import selada from "../assets/selada.png";
+import timun from "../assets/timun.png";
+import tomat from "../assets/tomat.png";
 
 const Home = () => {
   const [featuredProducts, setFeaturedProducts] = useState([]);
@@ -49,62 +55,45 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 text-white overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage:
-                'url("data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.4"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")',
-            }}
-          ></div>
+      <section className="relative min-h-screen bg-[#FDF6EC] flex items-center justify-center overflow-hidden">
+        <div class="absolute top-15  text-center z-20">
+          <h1 class="text-5xl font-poppins font-bold text-gray-900">
+            Juicy Burger
+          </h1>
+          <p class="mt-2 text-lg  text-gray-600">Fresh • Tasty • Handmade</p>
         </div>
 
-        <div className="container mx-auto px-4 py-20 relative z-10">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6 animate-slide-up">
-              <div className="inline-block">
-                <span className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-semibold">
-                  🔥 New Menu Items Available
-                </span>
-              </div>
-              <h1 className="text-6xl md:text-7xl font-display leading-tight">
-                THE BEST
-                <br />
-                <span className="text-yellow-300">BURGERS</span>
-                <br />
-                IN TOWN
-              </h1>
-              <p className="text-xl text-white/90">
-                Handcrafted burgers made with premium ingredients, served fresh
-                daily. Experience the taste of perfection!
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <Link
-                  to="/menu"
-                  className="btn btn-primary bg-white text-primary-700 hover:bg-yellow-300"
-                >
-                  Order Now <ChevronRight className="inline ml-2" size={20} />
-                </Link>
-                <Link
-                  to="/offers"
-                  className="btn border-2 border-white text-white hover:bg-white hover:text-primary-700"
-                >
-                  View Offers
-                </Link>
-              </div>
-            </div>
+        <img
+          src={burger}
+          alt="Burger"
+          class="w-[891px] md:w-[891px] md:h-[634px] z-10"
+        />
 
-            <div className="relative animate-float">
-              <div className="absolute inset-0 bg-yellow-300 rounded-full blur-3xl opacity-30"></div>
-              <img
-                src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600&h=600&fit=crop"
-                alt="Featured Burger"
-                className="relative rounded-3xl shadow-2xl transform hover:scale-105 transition-transform duration-500"
-              />
-            </div>
-          </div>
-        </div>
+        <img
+          src={selada}
+          class="absolute left-20 top-20 w-[337px] md:w-[337px] md:h-[225px] rotate-[-12deg]"
+        />
+
+        <img
+          src={tomat}
+          class="absolute left-10 bottom-32 w-[206px] md:w-[206px] md:h-[206px] rotate-[8deg]"
+        />
+        <img
+          src={timun}
+          class="absolute left-[30px] bottom-60 
+          w-[147px] md:w-[373px]
+          rotate-[10deg]"
+        />
+
+        <img
+          src={keju}
+          class="absolute right-20 top-10 w-[382px] md:w-[382px] md:h-[410px] rotate-[10deg]"
+        />
+
+        <img
+          src={bombay}
+          class="absolute right-60 bottom-28 w-[192px] md:w-[200px] md:h-[190px] rotate-[-8deg]"
+        />
       </section>
 
       {/* Special Offers Section */}
