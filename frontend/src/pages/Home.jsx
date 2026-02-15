@@ -56,43 +56,45 @@ const Home = () => {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative min-h-screen bg-[#FDF6EC] flex items-center justify-center overflow-hidden">
-        <div class="absolute top-15  text-center z-20">
-          <h1 class="text-5xl font-poppins font-bold text-gray-900">
+        <div className="absolute top-15  text-center z-20">
+          <h1 className="text-5xl font-poppins font-bold text-gray-900">
             Juicy Burger
           </h1>
-          <p class="mt-2 text-lg  text-gray-600">Fresh • Tasty • Handmade</p>
+          <p className="mt-2 text-lg  text-gray-600">
+            Fresh • Tasty • Handmade
+          </p>
         </div>
 
         <img
           src={burger}
           alt="Burger"
-          class="w-[891px] md:w-[891px] md:h-[634px] z-10"
+          className="w-[891px] md:w-[891px] md:h-[634px] z-10"
         />
 
         <img
           src={selada}
-          class="absolute left-20 top-20 w-[337px] md:w-[337px] md:h-[225px] rotate-[-12deg]"
+          className="absolute left-20 top-20 w-[337px] md:w-[337px] md:h-[225px] rotate-[-12deg]"
         />
 
         <img
           src={tomat}
-          class="absolute left-10 bottom-32 w-[206px] md:w-[206px] md:h-[206px] rotate-[8deg]"
+          className="absolute left-10 bottom-32 w-[206px] md:w-[206px] md:h-[206px] rotate-[8deg]"
         />
         <img
           src={timun}
-          class="absolute left-[30px] bottom-60 
+          className="absolute left-[30px] bottom-60 
           w-[147px] md:w-[373px]
           rotate-[10deg]"
         />
 
         <img
           src={keju}
-          class="absolute right-20 top-10 w-[382px] md:w-[382px] md:h-[410px] rotate-[10deg]"
+          className="absolute right-20 top-10 w-[382px] md:w-[382px] md:h-[410px] rotate-[10deg]"
         />
 
         <img
           src={bombay}
-          class="absolute right-60 bottom-28 w-[192px] md:w-[200px] md:h-[190px] rotate-[-8deg]"
+          className="absolute right-60 bottom-28 w-[192px] md:w-[200px] md:h-[190px] rotate-[-8deg]"
         />
       </section>
 
