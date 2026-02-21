@@ -9,6 +9,7 @@ import keju from "../assets/keju.png";
 import selada from "../assets/selada.png";
 import timun from "../assets/timun.png";
 import tomat from "../assets/tomat.png";
+import paketburger from "../assets/paket burger.png";
 
 const Home = () => {
   const [featuredProducts, setFeaturedProducts] = useState([]);
@@ -58,11 +59,9 @@ const Home = () => {
       <section className="relative min-h-screen bg-[#FDF6EC] flex items-center justify-center overflow-hidden">
         <div className="absolute top-15  text-center z-20">
           <h1 className="text-5xl font-poppins font-bold text-gray-900">
-            Juicy Burger
+            Delicious <br /> <span className="text-orange-600">Burger</span>{" "}
+            Delivered
           </h1>
-          <p className="mt-2 text-lg  text-gray-600">
-            Fresh • Tasty • Handmade
-          </p>
         </div>
 
         <img
@@ -99,167 +98,137 @@ const Home = () => {
       </section>
 
       {/* Special Offers Section */}
-      {promotions.length > 0 && (
-        <section className="container mx-auto px-4 py-16">
-          <div className="flex items-center justify-between mb-8">
+      <section className="bg-gray-100 py-20">
+        <div className="container mx-auto px-6">
+          {/* Heading */}
+          <div className="mb-12">
+            <h2 className="text-4xl font-bold text-gray-900 mb-2">
+              Dapatkan Penawaran Special
+            </h2>
+            <p className="text-gray-600">
+              Nikmati penawaran disetiap gigitannya
+            </p>
+          </div>
+
+          {/* Content */}
+          <div className="grid md:grid-cols-3 items-center gap-8">
+            {/* Left Promo */}
             <div>
-              <h2 className="text-4xl font-display mb-2">
-                <Sparkles className="inline text-primary-600 mr-2" />
-                Special Offers
-              </h2>
-              <p className="text-dark-500">
-                Limited time deals you don't want to miss!
+              <h3 className="text-2xl font-bold mb-3">Penawaran Spesial</h3>
+              <p className="text-gray-600 mb-6">
+                Rasakan cita rasa burger premium yang dibuat dengan bahan-bahan
+                terbaik.
               </p>
+              <button className="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-full font-semibold transition">
+                Ambil promo
+              </button>
             </div>
-            <Link
-              to="/offers"
-              className="text-primary-600 hover:text-primary-700 font-semibold flex items-center"
-            >
-              View All <ChevronRight size={20} />
-            </Link>
-          </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            {promotions.map((promo) => (
-              <div
-                key={promo.id}
-                className="card bg-gradient-to-br from-primary-50 to-primary-100 p-6 border-2 border-primary-200"
+            {/* Middle Image */}
+            <div className="flex justify-center">
+              <img
+                src={paketburger}
+                alt="Burger"
+                className="w-72 object-contain"
+              />
+            </div>
+
+            {/* Right Promo */}
+            <div className="border-l-2 border-red-300 pl-8">
+              <h3 className="text-2xl font-bold mb-3">Buy 2 get 1</h3>
+              <p className="text-gray-600 mb-6">
+                Nikmati burger premium dengan bahan-bahan segar dan nikmati
+                pengiriman cepat.
+              </p>
+              <button className="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-full font-semibold transition">
+                Ambil promo
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Popular Products Section */}
+      {/* Popular Products Section */}
+      {popularProducts.length > 0 && (
+        <section className="bg-gray-100 py-20">
+          <div className="container mx-auto px-6">
+            {/* Heading Center */}
+            <div className="text-center mb-14">
+              <h2 className="text-4xl font-bold text-gray-900">
+                Burger Terpopuler
+              </h2>
+              <p className="text-gray-600 mt-2">pilihan burger terbaik kami</p>
+            </div>
+
+            {/* Sub Heading */}
+            <div className="flex justify-between items-center mb-8">
+              <h3 className="text-2xl font-bold">Koleksi Burger</h3>
+              <Link
+                to="/menu"
+                className="text-red-500 font-semibold hover:text-red-600"
               >
-                <div className="flex items-start justify-between mb-4">
-                  <div className="bg-primary-600 text-white px-3 py-1 rounded-full text-sm font-bold">
-                    {promo.discount_type === "percentage"
-                      ? `${promo.discount_value}% OFF`
-                      : `$${promo.discount_value} OFF`}
-                  </div>
-                  <div className="flex items-center text-xs text-dark-600">
-                    <Clock size={14} className="mr-1" />
-                    Limited Time
-                  </div>
-                </div>
-                <h3 className="text-xl font-display mb-2">{promo.title}</h3>
-                <p className="text-dark-600 text-sm mb-4">
-                  {promo.description}
-                </p>
-                {promo.code && (
-                  <div className="bg-white border-2 border-dashed border-primary-600 rounded-lg p-3 text-center">
-                    <span className="text-xs text-dark-500">Use code:</span>
-                    <div className="text-lg font-bold text-primary-700">
-                      {promo.code}
-                    </div>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </section>
-      )}
-
-      {/* Featured Products Section */}
-      {featuredProducts.length > 0 && (
-        <section className="bg-dark-50 py-16">
-          <div className="container mx-auto px-4">
-            <div className="flex items-center justify-between mb-8">
-              <div>
-                <h2 className="text-4xl font-display mb-2">Featured Menu</h2>
-                <p className="text-dark-500">
-                  Our chef's special recommendations
-                </p>
-              </div>
+                Lihat semua
+              </Link>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {featuredProducts.map((product) => (
-                <div key={product.id} className="card card-hover group">
-                  <div className="relative overflow-hidden h-48">
+            {/* Product Grid */}
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {popularProducts.map((product) => (
+                <div
+                  key={product.id}
+                  className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition"
+                >
+                  {/* Favorite Icon */}
+                  <div className="flex justify-end">
+                    <button className="text-gray-400 hover:text-red-500 text-xl">
+                      ♡
+                    </button>
+                  </div>
+
+                  {/* Image */}
+                  <div className="flex justify-center mb-4">
                     <img
                       src={product.image_url}
                       alt={product.name}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      className="w-40 h-40 object-contain"
                     />
-                    <div className="absolute top-4 right-4 bg-primary-600 text-white px-3 py-1 rounded-full text-sm font-bold">
-                      Featured
-                    </div>
                   </div>
-                  <div className="p-4">
-                    <h3 className="text-lg font-display mb-2">
-                      {product.name}
-                    </h3>
-                    <p className="text-dark-600 text-sm mb-4 line-clamp-2">
-                      {product.description}
-                    </p>
-                    <div className="flex items-center justify-between">
-                      <span className="text-2xl font-bold text-primary-600">
-                        ${product.price}
-                      </span>
-                      <button
-                        onClick={() => handleAddToCart(product)}
-                        className="btn btn-primary text-sm"
-                      >
-                        Add to Cart
-                      </button>
-                    </div>
+
+                  {/* Rating */}
+                  <div className="flex justify-center text-orange-400 mb-2">
+                    ★★★★☆
+                  </div>
+
+                  {/* Name */}
+                  <h3 className="text-lg font-bold text-center mb-2">
+                    {product.name}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="text-gray-500 text-sm text-center mb-4 line-clamp-2">
+                    {product.description}
+                  </p>
+
+                  {/* Price */}
+                  <p className="text-red-500 font-bold text-center mb-4">
+                    Rp {product.price}
+                  </p>
+
+                  {/* Quantity Control */}
+                  <div className="flex items-center justify-center gap-4">
+                    <button className="w-8 h-8 border rounded-full">-</button>
+                    <span>0</span>
+                    <button
+                      onClick={() => handleAddToCart(product)}
+                      className="w-8 h-8 border rounded-full"
+                    >
+                      +
+                    </button>
                   </div>
                 </div>
               ))}
             </div>
-          </div>
-        </section>
-      )}
-
-      {/* Popular Products Section */}
-      {popularProducts.length > 0 && (
-        <section className="container mx-auto px-4 py-16">
-          <div className="flex items-center justify-between mb-8">
-            <div>
-              <h2 className="text-4xl font-display mb-2">
-                <TrendingUp className="inline text-primary-600 mr-2" />
-                Popular Picks
-              </h2>
-              <p className="text-dark-500">
-                Customer favorites that keep selling out!
-              </p>
-            </div>
-            <Link
-              to="/menu"
-              className="text-primary-600 hover:text-primary-700 font-semibold flex items-center"
-            >
-              View All Menu <ChevronRight size={20} />
-            </Link>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {popularProducts.map((product) => (
-              <div key={product.id} className="card card-hover">
-                <div className="flex gap-4 p-4">
-                  <div className="w-24 h-24 flex-shrink-0 rounded-lg overflow-hidden">
-                    <img
-                      src={product.image_url}
-                      alt={product.name}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="font-display text-lg mb-1">
-                      {product.name}
-                    </h3>
-                    <p className="text-dark-600 text-sm line-clamp-2 mb-2">
-                      {product.description}
-                    </p>
-                    <div className="flex items-center justify-between">
-                      <span className="text-xl font-bold text-primary-600">
-                        ${product.price}
-                      </span>
-                      <button
-                        onClick={() => handleAddToCart(product)}
-                        className="text-primary-600 hover:text-primary-700 font-semibold text-sm"
-                      >
-                        Add +
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
           </div>
         </section>
       )}
